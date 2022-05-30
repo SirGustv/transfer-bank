@@ -1,3 +1,5 @@
+using System;
+
 namespace TransferBank
 {
     public class Conta
@@ -9,7 +11,7 @@ namespace TransferBank
 
         public Conta(TipoConta tipoConta, double saldo, double carteira, string nome)
         {
-            this.TipoConta = tipoconta;
+            this.TipoConta = tipoConta;
             this.Saldo = saldo;
             this.Credito = carteira;
             this.Nome = nome;
@@ -19,15 +21,22 @@ namespace TransferBank
         {
             if (this.Saldo - valorSaque < this.Credito *-1 )
             {
-                Console.Writeline("Saldo insuficiente!");
+                Console.WriteLine("Saldo insuficiente!");
                 return false;
             }
 
             this.Saldo -= valorSaque;
 
-            Console.Writeline("Saldo atual da conta de {0} é {1}", this.Nome, this.Saldo);
+            Console.WriteLine("Saldo atual da conta de {0} é {1}", this.Nome, this.Saldo);
 
             return true;
+        }
+
+        public void Depositar(double valorDeposito)
+        {
+            this.Saldo += valorDeposito;
+
+            Console.WriteLine("Saldo atual da conta de {0} é {1}", this.Nome, this.Saldo);
         }
     }
 }
