@@ -17,9 +17,9 @@ namespace TransferBank
             this.Nome = nome;
         }
 
-        public bool Sacar (double valorSaque)
+        public bool Sacar(double valorSaque)
         {
-            if (this.Saldo - valorSaque < this.Credito *-1 )
+            if (this.Saldo - valorSaque < this.Credito * -1)
             {
                 Console.WriteLine("Saldo insuficiente!");
                 return false;
@@ -38,5 +38,14 @@ namespace TransferBank
 
             Console.WriteLine("Saldo atual da conta de {0} é {1}", this.Nome, this.Saldo);
         }
+
+        public void Transferir(double valorTransferencia, Conta contaDestino)
+        {
+            if (this.Sacar(valorTransferencia))
+            {
+                contaDestino.Depositar(valorTransferencia);
+            }
+        }
+
     }
 }
