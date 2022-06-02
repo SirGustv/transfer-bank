@@ -16,7 +16,6 @@ namespace TransferBank
             this.Credito = carteira;
             this.Nome = nome;
         }
-
         public bool Sacar(double valorSaque)
         {
             if (this.Saldo - valorSaque < this.Credito * -1)
@@ -31,14 +30,12 @@ namespace TransferBank
 
             return true;
         }
-
         public void Depositar(double valorDeposito)
         {
             this.Saldo += valorDeposito;
 
             Console.WriteLine("Saldo atual da conta de {0} é {1}", this.Nome, this.Saldo);
         }
-
         public void Transferir(double valorTransferencia, Conta contaDestino)
         {
             if (this.Sacar(valorTransferencia))
@@ -46,6 +43,14 @@ namespace TransferBank
                 contaDestino.Depositar(valorTransferencia);
             }
         }
-
+        public override string ToString()
+        {
+            string retorno = "";
+            retorno += "TipoConta" + this.TipoConta + " | ";
+            retorno += "Nome" + this.Nome + " | ";
+            retorno += "Saldo" + this.Saldo + " | ";
+            retorno += "Credito" + this.Credito;
+            return retorno;
+        }
     }
 }
