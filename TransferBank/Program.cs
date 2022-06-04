@@ -6,9 +6,25 @@ namespace TransferBank
     {
         static void Main(string[] args)
         {
-            Conta minhaConta = new Conta (TipoConta.PessoaFisica, 0, 0, "Gustavo Bernardes Santos");
+            Console.Clear();
+            string opcaoUsuario = ObterOpcaoUsuario();
+        }
+        private static string ObterOpcaoUsuario()
+        {
+            Console.WriteLine($"\nBank Service ao seu dispor!!!");
+            Console.WriteLine("Informe a opção desejada:\n");
 
-            Console.WriteLine(minhaConta);
+            Console.WriteLine("1 - Listar Contas");
+            Console.WriteLine("2 - Inserir nova conta");
+            Console.WriteLine("3 - Transferir");
+            Console.WriteLine("4 - Sacar");
+            Console.WriteLine("5 - Depositar");
+            Console.WriteLine("C - Limpar tela");
+            Console.WriteLine("X - Sair\n");    
+            
+            string opcaoUsuario = Console.ReadLine().ToUpper();
+            Console.WriteLine();
+            return opcaoUsuario;
         }
     }
 }
