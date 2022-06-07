@@ -8,6 +8,21 @@ namespace TransferBank
         {
             Console.Clear();
             string opcaoUsuario = ObterOpcaoUsuario();
+
+            while (opcaoUsuario.ToUpper() != "X")
+            {
+                switch (opcaoUsuario)
+                {
+                    case "C":
+                        Console.Clear();
+                        break;
+                    default:
+                    throw new ArgumentOutOfRangeException();
+                }
+                Console.WriteLine(opcaoUsuario);
+            }
+            Console.WriteLine("Obrigado por utilizar nossos serviços!");
+            Console.ReadKey();
         }
         private static string ObterOpcaoUsuario()
         {
@@ -20,8 +35,8 @@ namespace TransferBank
             Console.WriteLine("4 - Sacar");
             Console.WriteLine("5 - Depositar");
             Console.WriteLine("C - Limpar tela");
-            Console.WriteLine("X - Sair\n");    
-            
+            Console.WriteLine("X - Sair\n");
+
             string opcaoUsuario = Console.ReadLine().ToUpper();
             Console.WriteLine();
             return opcaoUsuario;
