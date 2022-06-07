@@ -13,11 +13,32 @@ namespace TransferBank
             {
                 switch (opcaoUsuario)
                 {
+                    case "1":
+                        //ListarContas();
+                        break;
+                
+                    case "2":
+                        //NovaConta();
+                        break;
+
+                    case "3":
+                        //Transferir();
+                        break;
+
+                    case "4":
+                        //Sacar();
+                        break;
+
+                    case "5":
+                        //Depositar();
+                        break;
+
                     case "C":
                         Console.Clear();
                         break;
+                        
                     default:
-                    throw new ArgumentOutOfRangeException();
+                        throw new ArgumentOutOfRangeException();
                 }
                 Console.WriteLine(opcaoUsuario);
             }
