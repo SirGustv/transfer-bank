@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TransferBank
 {
     class Program
     {
+        static List<Conta> listConta = new List<Conta>();
         static void Main(string[] args)
         {
             Console.Clear();
@@ -36,7 +38,7 @@ namespace TransferBank
                     case "C":
                         Console.Clear();
                         break;
-                        
+
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
