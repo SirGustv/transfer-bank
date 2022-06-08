@@ -16,9 +16,9 @@ namespace TransferBank
                 switch (opcaoUsuario)
                 {
                     case "1":
-                        //ListarContas();
+                        ListarContas();
                         break;
-                
+
                     case "2":
                         NovaConta();
                         break;
@@ -48,6 +48,23 @@ namespace TransferBank
             Console.ReadKey();
         }
 
+        private static void ListarContas()
+        {
+            if (listConta.Count == 0)
+            {
+                Console.WriteLine("Nenhuma conta cadastrada.");
+                return;
+            }
+            for (int i = 0; i < listConta.Count; i++)
+            {
+                Conta conta = listConta[i];
+                Console.Write("#{0} - ", i);
+                Console.WriteLine(conta);
+            }
+
+
+        }
+
         private static void NovaConta()
         {
             Console.WriteLine("Inserir nova conta");
@@ -64,7 +81,7 @@ namespace TransferBank
             Console.Write("Digite o Crédito");
             double entradaCredito = double.Parse(Console.ReadLine());
 
-            Conta novaConta = new Conta (tipoConta: (TipoConta)entradaTipoConta,
+            Conta novaConta = new Conta(tipoConta: (TipoConta)entradaTipoConta,
                                          nome: entradaNome,
                                          saldo: entradaSaldo,
                                          carteira: entradaCredito);
