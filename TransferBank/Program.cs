@@ -20,7 +20,7 @@ namespace TransferBank
                         break;
                 
                     case "2":
-                        //NovaConta();
+                        NovaConta();
                         break;
 
                     case "3":
@@ -47,6 +47,31 @@ namespace TransferBank
             Console.WriteLine("Obrigado por utilizar nossos serviços!");
             Console.ReadKey();
         }
+
+        private static void NovaConta()
+        {
+            Console.WriteLine("Inserir nova conta");
+
+            Console.Write("Digite 1 para Conta Física ou 2 para Conta Juridica");
+            int entradaTipoConta = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite o nome do cliente");
+            string entradaNome = Console.ReadLine();
+
+            Console.Write("Digite o saldo inicial");
+            double entradaSaldo = double.Parse(Console.ReadLine());
+
+            Console.Write("Digite o Crédito");
+            double entradaCredito = double.Parse(Console.ReadLine());
+
+            Conta novaConta = new Conta (tipoConta: (TipoConta)entradaTipoConta,
+                                         nome: entradaNome,
+                                         saldo: entradaSaldo,
+                                         carteira: entradaCredito);
+
+            listConta.Add(novaConta);
+        }
+
         private static string ObterOpcaoUsuario()
         {
             Console.WriteLine($"\nBank Service ao seu dispor!!!");
