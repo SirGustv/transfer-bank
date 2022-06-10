@@ -24,7 +24,7 @@ namespace TransferBank
                         break;
 
                     case "3":
-                        //Transferir();
+                        TransferirConta();
                         break;
 
                     case "4":
@@ -46,6 +46,20 @@ namespace TransferBank
             }
             Console.WriteLine("Obrigado por utilizar nossos serviços!");
             Console.ReadKey();
+        }
+
+        private static void TransferirConta()
+        {
+            Console.Write("Digite o número da conta origem: ");
+            int indiceContaOrigen = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite o número da conta de destino: ");
+            int indiceContaDestino = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite o valor a ser transferido: ");
+            double valorTransferencia = double.Parse(Console.ReadLine());
+
+            listConta[indiceContaOrigen].Transferir(valorTransferencia,listConta[indiceContaDestino]);
         }
 
         private static void SacarConta()
