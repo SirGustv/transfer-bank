@@ -32,7 +32,7 @@ namespace TransferBank
                         break;
 
                     case "5":
-                        //Depositar();
+                        DepositarConta();
                         break;
 
                     case "C":
@@ -57,6 +57,16 @@ namespace TransferBank
             double valorSaque = double.Parse(Console.ReadLine());
 
             listConta[indiceConta].Sacar(valorSaque);
+        }
+        private static void DepositarConta()
+        {
+            Console.Write("Digite o número da conta: ");
+            int indiceConta = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite o valor a ser depositado: ");
+            double valorDeposito = double.Parse(Console.ReadLine());
+
+            listConta[indiceConta].Depositar(valorDeposito);
         }
 
         private static void ListarContas()
