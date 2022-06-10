@@ -28,7 +28,7 @@ namespace TransferBank
                         break;
 
                     case "4":
-                        //Sacar();
+                        SacarConta();
                         break;
 
                     case "5":
@@ -42,10 +42,21 @@ namespace TransferBank
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
-                Console.WriteLine(opcaoUsuario);
+                opcaoUsuario = ObterOpcaoUsuario();
             }
             Console.WriteLine("Obrigado por utilizar nossos serviços!");
             Console.ReadKey();
+        }
+
+        private static void SacarConta()
+        {
+            Console.Write("Digite o número da conta: ");
+            int indiceConta = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite o valor a ser sacado: ");
+            double valorSaque = double.Parse(Console.ReadLine());
+
+            listConta[indiceConta].Sacar(valorSaque);
         }
 
         private static void ListarContas()
@@ -69,16 +80,16 @@ namespace TransferBank
         {
             Console.WriteLine("Inserir nova conta");
 
-            Console.Write("Digite 1 para Conta Física ou 2 para Conta Juridica");
+            Console.Write("Digite 1 para Conta Física ou 2 para Conta Juridica: ");
             int entradaTipoConta = int.Parse(Console.ReadLine());
 
-            Console.Write("Digite o nome do cliente");
+            Console.Write("Digite o nome do cliente: ");
             string entradaNome = Console.ReadLine();
 
-            Console.Write("Digite o saldo inicial");
+            Console.Write("Digite o saldo inicial: ");
             double entradaSaldo = double.Parse(Console.ReadLine());
 
-            Console.Write("Digite o Crédito");
+            Console.Write("Digite o Crédito: ");
             double entradaCredito = double.Parse(Console.ReadLine());
 
             Conta novaConta = new Conta(tipoConta: (TipoConta)entradaTipoConta,
